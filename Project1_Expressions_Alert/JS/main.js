@@ -19,3 +19,8 @@ function My_First_Function() {
     var str = "This is the button text"; // declaring and setting a string variable
     document.getElementById("Button_Text").innerHTML = str; // getting an element in the html ddocument, then assigning the newly declaredd strring variable as the new text in the element we got by its id
 }
+
+function Get_Date() {
+    var str = Date();
+    document.getElementById("Date_Button").innerHTML = str;
+}
