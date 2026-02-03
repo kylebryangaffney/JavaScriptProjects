@@ -17,3 +17,16 @@ function PopUp_Window() {
     Alert_Message += "the button"; // add to the string to complete the message
     window.alert(Alert_Message);
 }
+
+
+
+function myDictionary(){
+    var Animal = {
+        Species: "dog",
+        Color: "black",
+        Breed: "labrador",
+        Age: 5,
+        Sound: "Bark"
+    };
+    document.getElementById("Dictionary").innerHTML = Animal.Sound;
+}
