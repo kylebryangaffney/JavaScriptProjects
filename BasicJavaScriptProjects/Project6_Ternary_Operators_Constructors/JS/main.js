@@ -3,7 +3,7 @@
 function rideFunction() {
     var height, canRide;
     height = document.getElementById("height").value;
-    canRjanetCaride = (height < 52) ? "You are not tall enough " : "You are tall enough ";
+    canRide = (height < 52) ? "You are not tall enough " : "You are tall enough ";
     document.getElementById("ride").innerHTML = canRide + "to ride";
 }
 
@@ -14,7 +14,6 @@ function voteFunction() {
     canVote = (age < 18) ? "You are not old enough " : "You are old enough ";
     document.getElementById("vote").innerHTML = canVote + "to vote";
 }
-
 
 
 // Function to start counting at 9 and reach 10 through nesting other functions.
