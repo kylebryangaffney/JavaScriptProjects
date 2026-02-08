@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><!--Head-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Using Console to Debug</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="JS/main.js"></script>
+</head>
+
+<!--body-->
+
+<body onload="pageLoad()">
+    <button onclick="clickCount()">Counter</button>
+    <button onclick="resetCount()">Reset Counter</button>
+    <p id="counter"></p>
+    <script>
+        function pageLoad(){
+            let greeting = "Welcome to ";
+            greeting += "learning how to debug code ";
+            greeting += "while using the console and dev tools";
+            window.alert(greeting);
+        }
+
+        let count = 0;
+
+        function clickCount(){
+            count++;
+            document.getElementById("counter").innerHTML = count;
+        }
+
+        function resetCount(){
+            count = 0;
+            document.getElementById("counter").innerHTML = count;
+        }
+    </script>
+
+    <p id="countToTen"></p>
+    <button onclick="countToTen()">click here to start counting</button>
+
+</body>
+
+</html>
