@@ -115,7 +115,7 @@ document.getElementById("carObject").innerHTML = car.description();
 
 // Exits a for loop prematurely when a condition is met
 
-   function breakFunction() {
+function breakFunction() {
     let text = "";
     let i = 0;
     for (i = 0; i < 10; i++) {
