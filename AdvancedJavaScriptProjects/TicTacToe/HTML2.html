@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<!--Head-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Running JavaScript in the Console</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="JS/main.js"></script>
+</head>
+<!--body-->
+
+<body>
+    <p id="arrow">Add numbers here</p>
+
+
+    <script>
+        let a = 3;
+        let b = 4;
+        let result = (input) => a + " + " + b + " + " + input + " = " + (a + b + input);
+        document.getElementById("arrow").innerHTML = result(5);
+
+    </script>
+</body>
+
+</html>
