@@ -2,6 +2,9 @@
 let activePlayer = "X";
 let selectedSquares = [];
 
+
+//Placing X or O on a square. It checks if a square is available, updates the UI, checks for wins, and then turn transition to and from the computer.
+
 function placeXOrO(squareNumber) {
     // This condition ensures a square can't be clicked twice
     if (!selectedSquares.some(element => element.includes(squareNumber))) {
@@ -16,7 +19,7 @@ function placeXOrO(squareNumber) {
         selectedSquares.push(squareNumber + activePlayer);
 
         checkWinConditions();
-
+        // set the current player
         if (activePlayer === "X") {
             activePlayer = "O";
         } else {
@@ -32,6 +35,9 @@ function placeXOrO(squareNumber) {
 
         return true;
     }
+    
+   
+//Logic for the computer's turn. Chooses a random number that corelates to a square on the board, then attempts to place an 'O' until it finds a valid move.
 
     function computerTurn() {
         let success = false;
@@ -40,6 +46,7 @@ function placeXOrO(squareNumber) {
         while (!success) {
             pickASquare = String(Math.floor(Math.random() * 9));
 
+            // is the second calling of the placeXOrO(pickASquare) needed inside the loop? that seemed like a typo?
             if (placeXOrO(pickASquare)) {
                 success = true;
             }
@@ -47,6 +54,7 @@ function placeXOrO(squareNumber) {
     }
 }
 
+// Scans the selectedSquares array for any of the 8 possible winning groups of moves. If someone won the game, this calls the drawing function for the win line.
 function checkWinConditions() {
     if (arrayIncludes("0X", "1X", "2X")) { drawWinLine(50, 100, 558, 100) }
     else if (arrayIncludes("3X", "4X", "5X")) { drawWinLine(50, 304, 558, 304) }//
@@ -71,6 +79,7 @@ function checkWinConditions() {
     }
 }
 
+// Checks if the selectedSquares array -- list of moves taken -- contains any of the winning patterns
 function arrayIncludes(squareA, squareB, squareC) {
     const a = selectedSquares.includes(squareA);
     const b = selectedSquares.includes(squareB);
@@ -81,17 +90,19 @@ function arrayIncludes(squareA, squareB, squareC) {
     }
 }
 
-
+//Temporarily disables the user from clicking on the board to prevent the user from clicking while the computer is selecting a valid move
 function disableClick() {
     body.style.pointerEvents = "none";
     setTimeout(function () { body.style.pointerEvents = "auto"; }, 1000);
 }
 
+// Creates an audio player, then gets the audio for the player 
 function audio(audioURL) {
     let audio = new Audio(audioURL);
     audio.play();
 }
 
+// takes the coordinates of the winning group, and then animates a green line across the winning board cells
 function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     const canvas = document.getElementById("win-lines");
     const ctx = canvas.getContext("2d");
@@ -103,6 +114,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         x = x1,
         y = y1;
 
+    // Actually animatesthe winning line drawing. It uses requestAnimationFrame to redraw the line frame-by-frame until the end coordinates from the drawLine call are reached
     function animateLineDrawing() {
         const animationLoop = requestAnimationFrame(animateLineDrawing);
 
@@ -139,6 +151,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         }
     }
 
+    // Removes the images drawn on the board after the win animation is done. It ensures the image of the board is empty
     function clear() {
         const animationLoop = requestAnimationFrame(clear);
 
@@ -155,6 +168,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
 
 }
 
+// Sets all of the background images for the board cells to null, and clears the selectedSquares array to start a new game
 function resetGame(){
     for (let i = 0; i < 9; i++){
         let square = document.getElementById(String(i));
