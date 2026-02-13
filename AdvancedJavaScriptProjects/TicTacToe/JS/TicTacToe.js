@@ -35,9 +35,9 @@ function placeXOrO(squareNumber) {
 
         return true;
     }
-    
-   
-//Logic for the computer's turn. Chooses a random number that corelates to a square on the board, then attempts to place an 'O' until it finds a valid move.
+
+
+    //Logic for the computer's turn. Chooses a random number that corelates to a square on the board, then attempts to place an 'O' until it finds a valid move.
 
     function computerTurn() {
         let success = false;
@@ -141,13 +141,12 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
             if (x < x2) {
                 x += 10;
             }
-            if (y < y2) {
-                y += 10;
+            if (y > y2) {
+                y -= 10;
             }
-            if (x >= x2 && y >= y2) {
+            if (x >= x2 && y <= y2) {
                 cancelAnimationFrame(animationLoop);
             }
-
         }
     }
 
@@ -169,8 +168,8 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
 }
 
 // Sets all of the background images for the board cells to null, and clears the selectedSquares array to start a new game
-function resetGame(){
-    for (let i = 0; i < 9; i++){
+function resetGame() {
+    for (let i = 0; i < 9; i++) {
         let square = document.getElementById(String(i));
         square.style.backgroundImage = "";
     }
