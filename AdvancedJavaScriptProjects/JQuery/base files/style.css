@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+
+:root {
+    --main-font: 'Gloock', serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2 {
+    font-family: var(--main-font);
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-family: var(--main-font);
+    font-size: 30px;
+    text-align: left;
+}
+
+/*HEADER SECTION*/
+
+.header {
+    padding-top: 150px;
+    font-size: 150px;
+}
+
+.car-title {
+    font-size: 30px
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.column {
+    width: 33%;
+    margin: 40px;
+}
