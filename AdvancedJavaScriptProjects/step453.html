@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kyle Gaffney">
+    <title>Step 453</title>
+</head>
+
+<body>
+<p id="myDog"></p>
+
+<p id="dblClick" ondblclick="redify()">Double click here to make this red</p>
+
+<script>
+   localStorage.setItem("Name", "Booboo");
+   document.getElementById("myDog").innerHTML = localStorage.getItem("Name")
+
+   function redify(){
+    document.getElementById("dblClick").style.color="red";
+   }
+</script>
+
+</body>
+
+</html>

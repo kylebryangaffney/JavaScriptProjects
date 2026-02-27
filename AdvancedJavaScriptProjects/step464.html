@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kyle Gaffney">
+    <title>Step 464</title>
+</head>
+
+<body>
+    <h1>Generate a random fact about Numbers</h1>
+    <button onclick="getNumberFact()">Click Here For A Number Fact</button>
+    <p id="factDisplay"></p>
+
+    <script>
+        function getNumberFact() {
+            fetch("https://catfact.ninja/fact")
+                .then(response => response.json())
+                .then(fact => {
+                    document.getElementById("factDisplay").textContent = fact.fact;
+                })
+                .catch(error => {
+                    console.error(error);
+                    document.getElementById("factDisplay").textContent = "Error fetching Fact";
+                });
+        }
+    </script>
+</body>
+
+</html>
