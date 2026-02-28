@@ -1,5 +1,3 @@
-and this is the read me file. please add in links to the projects
-
 # JavaScriptProjects
 
 ## Overview
